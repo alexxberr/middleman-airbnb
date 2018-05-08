@@ -1,0 +1,76 @@
+<!-- source/flats/show.html.erb -->
+
+<!-- Access data.flats with owner's name as key -->
+<% flat = data.flats[owner] %>
+
+<!-- Inject flat data in template -->
+
+<div class="banner-small" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://kitt.lewagon.com/placeholder/cities/<%= flat.city_slug %>');">
+</div>
+
+<div class="container-profile">
+  <div class= "row">
+    <div class="col-xs-12 col-md-6 col-md-offset-1">
+      <div class="profile ">
+        <div class="flat-owner text-center">
+        <%= image_tag "https://kitt.lewagon.com/placeholder/users/#{owner}", class: "img-circle" %>
+          <p><%= flat.name %></p>
+        </div>
+        <div class="flat-owner-descr">
+          <h1><%= flat.description %></h1>
+          <p><%= flat.city_name %></p>
+          <p>
+            <% numb = flat.rating.to_i %>
+            <% numb.times do %>
+            <i class="fa fa-star" style="color:gold"></i>
+            <% end %>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-md-4">
+      <div class="booking-form">
+        <form action="">
+          <h1 class="text-center">Book this flat</h1>
+            <div class="row">
+              <div class="col-xs-6">
+                <div class="form-group">
+                  <label for="checking"></label>
+                  <input type="text" class="form-control" id="checking" placeholder="checkin">
+                </div>
+              </div>
+              <div class="col-xs-6">
+                <div class="form-group">
+                  <label for="checkout"></label>
+                  <input type="text" class="form-control" id="checkout" placeholder="checkout">
+                </div>
+              </div>
+              <div class="col-xs-12">
+               <div class="form-group">
+                 <label for="favorite"></label>
+                 <select id="favorite" name="guests" class="form-choice">
+                   <option value="one-guest">1 guest</option>
+                   <option value="two-guests">2 guests</option>
+                   <option value="three-guests">3 guests</option>
+                 </select>
+               </div>
+              </div>
+              <div class="col-xs-12">
+                <input type="submit" value="Book it" class="btn btn-primary">
+              </div>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-flat">
+  <div class="flat-descr">
+    <h1>About this flat</h1>
+    <p></p>
+
+  </div>
+
+</div>
